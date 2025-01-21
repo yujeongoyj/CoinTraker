@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import timber.log.Timber
 
+
 class App: Application() {
 
     override fun onCreate() {

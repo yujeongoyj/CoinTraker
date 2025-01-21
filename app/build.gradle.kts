@@ -36,6 +36,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -45,14 +46,27 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.support.annotations)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     // timber
-    implementation ("com.jakewharton.timber:timber:5.0.1")
+    implementation(libs.timber)
+    // splash
+    implementation(libs.androidx.core.splashscreen)
+    // navigation
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    // retrofit (네트워크 요청을 만들고 API 응답처리를 위해)
+    implementation (libs.com.squareup.retrofit2.retrofit)
+    // JSON 데이터를 GSON 라이브러리를 사용하여 객체로 변환하고 다시 JSON으로 변환하도록
+    implementation (libs.converter.gson)
+    // Coroutine
+    implementation (libs.kotlinx.coroutines.android)
+    implementation (libs.androidx.lifecycle.runtime.ktx)
+
 
 }
