@@ -44,6 +44,14 @@ class SelectRVAdapter(val context: Context, val coinPriceList: List<CurrentPrice
         val likeImage = holder.likeImage
         val currentCoin = coinPriceList[position].coinName // 현재 클릭된 코인
 
+        // RecyclerView는 view를 재활용해 계속 반복해 보여주는 문제를 해결하기 위해
+        if (selectedCoinList.contains(currentCoin)) {
+            likeImage.setImageResource(R.drawable.like_red)
+        } else {
+            selectedCoinList.add(currentCoin)
+            likeImage.setImageResource(R.drawable.like_grey)
+        }
+
         likeImage.setOnClickListener {
             // 리스트에 있을 때
             if (selectedCoinList.contains(currentCoin)) {

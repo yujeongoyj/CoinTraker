@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    //alias(libs.plugins.kotlin.kapt)
+    id("kotlin-kapt")
 }
 
 android {
@@ -47,6 +49,9 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.support.annotations)
+    implementation(libs.androidx.annotation)
+    // implementation(libs.support.v4)
+    implementation(libs.androidx.legacy.support.v4)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -67,6 +72,19 @@ dependencies {
     // Coroutine
     implementation (libs.kotlinx.coroutines.android)
     implementation (libs.androidx.lifecycle.runtime.ktx)
+    // DateStore
+    implementation(libs.androidx.datastore.preferences)
+    // Lottie
+    implementation (libs.lottie)
+
+    // room 라이브러리는 sql 작성을 쉽게 할 수 있도록 도와줌
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    kapt("androidx.room:room-compiler:2.4.1")
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+
+
 
 
 }

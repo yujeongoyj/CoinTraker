@@ -1,5 +1,6 @@
 package com.project.cointraker.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Layout
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.cointraker.MainActivity
 import com.project.cointraker.R
 import com.project.cointraker.databinding.ActivitySelectBinding
 import com.project.cointraker.view.adapter.SelectRVAdapter
@@ -43,6 +45,13 @@ class SelectActivity : AppCompatActivity() {
             binding.coinListRV.layoutManager = LinearLayoutManager(this)
 
         })
+
+        viewModel.setUpFirstFlag()
+
+        binding.laterTextArea.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

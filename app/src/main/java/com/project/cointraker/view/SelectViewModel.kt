@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.project.cointraker.dataModel.CurrentPrice
 import com.project.cointraker.dataModel.CurrentPriceResult
+import com.project.cointraker.dataStore.MyDataStore
 import com.project.cointraker.repository.NetWorkRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -42,5 +43,9 @@ class SelectViewModel : ViewModel() {
 
         }
         _currentPriceResult.value = currentPriceResultList
+    }
+
+    fun setUpFirstFlag() = viewModelScope.launch {
+        MyDataStore().setupFirstData()
     }
 }
