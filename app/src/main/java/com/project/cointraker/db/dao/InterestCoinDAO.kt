@@ -15,7 +15,7 @@ interface InterestCoinDAO {
     // getAllData
     // flow는 데이터의 변경 사항을 감지하기 좋다
     @Query("SELECT * FROM interested_coin_table")
-    fun getAllData() : Flow<List<InterestCoinDAO>>
+    fun getAllData(): Flow<List<InterestCoinEntity>>
 
 
     // Insert

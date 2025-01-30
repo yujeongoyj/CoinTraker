@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    //alias(libs.plugins.kotlin.kapt)
     id("kotlin-kapt")
 }
 
@@ -80,7 +79,7 @@ dependencies {
     // room 라이브러리는 sql 작성을 쉽게 할 수 있도록 도와줌
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
-    kapt("androidx.room:room-compiler:2.4.1")
+    kapt(libs.androidx.room.compiler.v261)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 

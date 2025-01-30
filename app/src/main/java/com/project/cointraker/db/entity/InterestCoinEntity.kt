@@ -3,10 +3,8 @@ package com.project.cointraker.db.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 @Entity(tableName = "interested_coin_table")
 data class InterestCoinEntity(
-
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val coin_name: String,
