@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import com.project.cointraker.view.main.MainActivity
+
 import com.project.cointraker.R
 import com.project.cointraker.databinding.ActivityIntroBinding
 import timber.log.Timber

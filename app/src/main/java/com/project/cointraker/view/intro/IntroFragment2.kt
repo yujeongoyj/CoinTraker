@@ -6,8 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.project.cointraker.databinding.FragmentIntro2Binding
+
 import com.project.cointraker.view.SelectActivity
+import com.project.cointraker.databinding.FragmentIntro2Binding
 
 
 class IntroFragment2 : Fragment() {

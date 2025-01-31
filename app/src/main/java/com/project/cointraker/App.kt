@@ -2,7 +2,6 @@ package com.project.cointraker
 
 import android.app.Application
 import android.content.Context
-import android.util.Log
 import timber.log.Timber
 
 

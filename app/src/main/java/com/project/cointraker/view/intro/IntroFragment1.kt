@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+/*import com.project.coco.R
+import com.project.coco.databinding.FragmentIntro1Binding*/
 import com.project.cointraker.R
 import com.project.cointraker.databinding.FragmentIntro1Binding
 

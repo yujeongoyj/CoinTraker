@@ -10,9 +10,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.cointraker.view.main.MainActivity
+import com.project.cointraker.view.adapter.SelectRVAdapter
 import com.project.cointraker.R
 import com.project.cointraker.databinding.ActivitySelectBinding
-import com.project.cointraker.view.adapter.SelectRVAdapter
 
 class SelectActivity : AppCompatActivity() {
 

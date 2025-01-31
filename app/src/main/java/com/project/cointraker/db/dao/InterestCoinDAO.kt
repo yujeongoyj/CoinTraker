@@ -6,7 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.project.cointraker.db.entity.InterestCoinEntity
-import com.project.cointraker.view.SelectActivity
 import kotlinx.coroutines.flow.Flow
 
 

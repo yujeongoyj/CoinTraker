@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.project.cointraker.R
+
 import com.project.cointraker.dataModel.CurrentPriceResult
+import com.project.cointraker.R
 
 class SelectRVAdapter(val context: Context, val coinPriceList: List<CurrentPriceResult>) :
     RecyclerView.Adapter<SelectRVAdapter.ViewHolder>() {
