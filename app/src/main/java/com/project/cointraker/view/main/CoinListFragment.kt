@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.project.cointraker.R
 import com.project.cointraker.databinding.FragmentCoinListBinding
 import com.project.cointraker.db.entity.InterestCoinEntity
+import com.project.cointraker.view.adapter.CoinListRVAdapter
 import kotlinx.coroutines.selects.select
 import timber.log.Timber
 
@@ -63,7 +65,36 @@ class CoinListFragment : Fragment() {
 
             Timber.d(selectedList.toString())
             Timber.d(unSelectedList.toString())
+            // 위에서 리스트에 분류가 되면 넣어주기
+            setSelectedListRV()
+
         })
+    }
+
+    private fun setSelectedListRV() {
+
+        val selectedRVAdapter = CoinListRVAdapter(requireContext(), selectedList)
+        binding.selectedCoinRV.adapter = selectedRVAdapter
+        binding.selectedCoinRV.layoutManager = LinearLayoutManager(requireContext())
+
+        selectedRVAdapter.itemClick = object : CoinListRVAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+                viewModel.updateInterestCoinData(selectedList[position])
+            }
+
+        }
+
+        val unSelectedRVAdapter = CoinListRVAdapter(requireContext(), unSelectedList)
+        binding.unSelectedCoinRV.adapter = unSelectedRVAdapter
+        binding.unSelectedCoinRV.layoutManager = LinearLayoutManager(requireContext())
+
+        unSelectedRVAdapter.itemClick = object : CoinListRVAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+                viewModel.updateInterestCoinData(unSelectedList[position])
+            }
+
+        }
+
     }
 
     override fun onDestroy() {
