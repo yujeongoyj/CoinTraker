@@ -9,10 +9,16 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequest
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.project.cointraker.view.main.MainActivity
 import com.project.cointraker.view.adapter.SelectRVAdapter
 import com.project.cointraker.R
+import com.project.cointraker.background.GetCoinPriceRecentContractedWorkManager
 import com.project.cointraker.databinding.ActivitySelectBinding
+import java.util.concurrent.TimeUnit
 
 class SelectActivity : AppCompatActivity() {
 
@@ -57,8 +63,27 @@ class SelectActivity : AppCompatActivity() {
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+
+                // 가장 처음으로 저장된 코인 정보가 시작되는 시점
+                saveInterestCoinDataPeriodic()
+
             }
         })
 
+    }
+
+    private fun saveInterestCoinDataPeriodic() {
+        val myWork = PeriodicWorkRequest.Builder(
+            GetCoinPriceRecentContractedWorkManager::class.java,
+            15,
+            TimeUnit.MINUTES
+        ).build()
+
+        // 계속 실행하면 여러개가 돌아갈텐데 그걸 방지하고 유니크하게 하나만(?) 돌아가도록
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "GetCoinPriceRecentContractedWorkManager",
+            ExistingPeriodicWorkPolicy.KEEP,
+            myWork
+        )
     }
 }

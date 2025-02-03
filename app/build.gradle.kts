@@ -83,6 +83,9 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+    // Coroutine WorkManager
+    implementation(libs.androidx.work.runtime.ktx)
+
 
 
 

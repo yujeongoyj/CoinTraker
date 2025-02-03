@@ -4,15 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.project.cointraker.db.dao.InterestCoinDAO
+import com.project.cointraker.db.dao.SelectedCoinPriceDAO
+import com.project.cointraker.db.entity.DateConverters
 import com.project.cointraker.db.entity.InterestCoinEntity
+import com.project.cointraker.db.entity.SelectedCoinPriceEntity
 
 // https://developer.android.com/codelabs/basic-android-kotlin-training-persisting-data-room?hl=ko#0
-@Database(entities = [InterestCoinEntity::class], version = 1)
+@Database(entities = [InterestCoinEntity::class, SelectedCoinPriceEntity::class], version = 2)
+@TypeConverters(DateConverters::class)
 abstract class CoinPriceDatabase : RoomDatabase() { // RoomDatabase를 확장하는 추상 클래스
 
     // 데이버베이스는 반환하는 DAO가 있어야 하고 여러개도 가능
     abstract fun interestCoinDAO()  : InterestCoinDAO
+    abstract fun selectedCoinDAO() : SelectedCoinPriceDAO
 
     // companion 객체를 통해 이름을 한정자로 사용하여 데이터베이스를 만들거나 가져오는 메서드에 접근 가능
     companion object {

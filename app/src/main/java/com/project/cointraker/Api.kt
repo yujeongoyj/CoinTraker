@@ -1,7 +1,9 @@
 package com.project.cointraker
 
 import com.project.cointraker.network.model.CurrentPriceList
+import com.project.cointraker.network.model.RecentCoinPriceList
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface Api {
 
@@ -9,6 +11,10 @@ interface Api {
     // Retorfit의 BASE_URL과 결합되어 최종 URL이 만들어짐
     @GET("public/ticker/ALL_KRW")
     suspend fun getCurrentConList() : CurrentPriceList // suspend는 코루틴 내에서 실행되는 비동기 처리가 가능한 함수
+
+    @GET("public/transaction_history/{coin}_KRW")
+    suspend fun getRecentCoinPrice(@Path("coin") coin: String) : RecentCoinPriceList
+
 
 
 }

@@ -27,6 +27,7 @@ supportAnnotations = "28.0.0"
 annotation = "1.9.1"
 supportV4 = "28.0.0"
 legacySupportV4 = "1.0.0"
+workRuntimeKtx = "2.7.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +39,7 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 androidx-room-compiler-v261 = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomKtx" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 com-squareup-retrofit2-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "squareupRetrofitVersion" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "squareupRetrofitVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
