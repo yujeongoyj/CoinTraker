@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".App"
@@ -14,7 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CoinTraker"
+        tools:ignore="ForegroundServicePermission"
         tools:targetApi="31">
+        <activity
+            android:name=".view.setting.SettingActivity"
+            android:exported="false" />
         <activity
             android:name=".view.SelectActivity"
             android:exported="false" />
@@ -37,6 +43,13 @@
         <activity
             android:name=".App"
             android:exported="false" />
+
+        <service
+            android:name=".service.PriceForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="shortService" />
+
     </application>
+
 
 </manifest>
